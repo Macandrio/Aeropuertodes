@@ -1,5 +1,31 @@
 [
 {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+        "name": "Pasajero",
+        "permissions": [
+            49,
+            50,
+            51,
+            52
+        ]
+    }
+},
+{
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+        "name": "Gerente",
+        "permissions": [
+            65,
+            66,
+            67,
+            68
+        ]
+    }
+},
+{
     "model": "auth.permission",
     "pk": 1,
     "fields": {
@@ -681,6 +707,186 @@
         "name": "Can view vuelo aerolinea",
         "content_type": 19,
         "codename": "view_vueloaerolinea"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 77,
+    "fields": {
+        "name": "Can add application",
+        "content_type": 20,
+        "codename": "add_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 78,
+    "fields": {
+        "name": "Can change application",
+        "content_type": 20,
+        "codename": "change_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 79,
+    "fields": {
+        "name": "Can delete application",
+        "content_type": 20,
+        "codename": "delete_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 80,
+    "fields": {
+        "name": "Can view application",
+        "content_type": 20,
+        "codename": "view_application"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 81,
+    "fields": {
+        "name": "Can add access token",
+        "content_type": 21,
+        "codename": "add_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 82,
+    "fields": {
+        "name": "Can change access token",
+        "content_type": 21,
+        "codename": "change_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 83,
+    "fields": {
+        "name": "Can delete access token",
+        "content_type": 21,
+        "codename": "delete_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 84,
+    "fields": {
+        "name": "Can view access token",
+        "content_type": 21,
+        "codename": "view_accesstoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 85,
+    "fields": {
+        "name": "Can add grant",
+        "content_type": 22,
+        "codename": "add_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 86,
+    "fields": {
+        "name": "Can change grant",
+        "content_type": 22,
+        "codename": "change_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 87,
+    "fields": {
+        "name": "Can delete grant",
+        "content_type": 22,
+        "codename": "delete_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 88,
+    "fields": {
+        "name": "Can view grant",
+        "content_type": 22,
+        "codename": "view_grant"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 89,
+    "fields": {
+        "name": "Can add refresh token",
+        "content_type": 23,
+        "codename": "add_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 90,
+    "fields": {
+        "name": "Can change refresh token",
+        "content_type": 23,
+        "codename": "change_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 91,
+    "fields": {
+        "name": "Can delete refresh token",
+        "content_type": 23,
+        "codename": "delete_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 92,
+    "fields": {
+        "name": "Can view refresh token",
+        "content_type": 23,
+        "codename": "view_refreshtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 93,
+    "fields": {
+        "name": "Can add id token",
+        "content_type": 24,
+        "codename": "add_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 94,
+    "fields": {
+        "name": "Can change id token",
+        "content_type": 24,
+        "codename": "change_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 95,
+    "fields": {
+        "name": "Can delete id token",
+        "content_type": 24,
+        "codename": "delete_idtoken"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 96,
+    "fields": {
+        "name": "Can view id token",
+        "content_type": 24,
+        "codename": "view_idtoken"
     }
 }
 ]

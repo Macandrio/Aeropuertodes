@@ -538,6 +538,9 @@ Empleado.objects.select_related(
 )
 
 
-curl -X POST "http://0.0.0.0:8000/oauth2/token/" -d "grant_type=password&username=ale&password=ale&client_id=mi_aplicacion&client_secret=mi_clave_secreta"
+curl -X POST "http://0.0.0.0:8000/oauth2/token/" -d "grant_type=password&username=pi&password=AGR12345678&client_id=mi_aplicacion&client_secret=mi_clave_secreta"
 
 weafixJCm0ZurjQ8uKVMqNKGQfjCbm
+
+de usuraio = 1UMddlv1zukgr5UusiBaT5yGK9tMLl
+de gerente = qA2W2XXPWOTFfI84Mw2ej9jYPToLrz

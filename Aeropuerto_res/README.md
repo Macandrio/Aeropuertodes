@@ -415,7 +415,7 @@ python manage.py migrate
 python manage.py makemigrations apaeropuerto
 python manage.py migrate apaeropuerto
 python manage.py seed apaeropuerto --number=20
-python manage.py dumpdata --indent 4 > apaeropuerto/fixtures/datos.json
+python manage.py dumpdata --indent 4 > apaeropuerto/fixtures/datos_sesion.json
 python manage.py loaddata apaeropuerto/fixtures/datos2.json
 
 python manage.py createsuperuser

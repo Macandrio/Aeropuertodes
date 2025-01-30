@@ -1,0 +1,31 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Aeropuerto_Clietne",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "runserver"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/Nuevo_trabajo/manage.py"
+        },
+        {
+            "name": "Aeropuerto_Servidor",
+            "type": "debugpy",
+            "request": "launch",
+            "args": [
+                "runserver",
+                "127.0.0.1:8081"
+            ],
+            "django": true,
+            "autoStartBrowser": false,
+            "program": "${workspaceFolder}/Aeropuerto_res/manage.py"
+        }
+    ]
+}

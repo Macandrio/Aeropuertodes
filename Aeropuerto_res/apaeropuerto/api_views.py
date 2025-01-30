@@ -1,16 +1,14 @@
 from .models import *
 from .serializers import *
-from rest_framework.response import Response
-from rest_framework.decorators import api_view,authentication_classes,permission_classes
-from rest_framework import status
-from .forms import *
+from .forms import * 
 from django.db.models import Prefetch
-from rest_framework import generics
-from rest_framework.permissions import AllowAny
-from oauth2_provider.models import AccessToken
+from rest_framework.decorators import api_view
+from rest_framework.response import Response
 
+    
 @api_view(['GET'])
 def lista_aeropuerto(request):
+
     aeropuerto = Aeropuerto.objects.prefetch_related(
     Prefetch('aerolinea_de_aeropuerto'),  # ManyToMany con Aerolínea
     Prefetch('vuelos_de_origen'),         # ManyToOne reversa con Vuelo (origen)
@@ -22,6 +20,7 @@ def lista_aeropuerto(request):
 
 @api_view(['GET'])
 def lista_aerolinea(request):
+    
     aerolinea = Aerolinea.objects.prefetch_related(
     Prefetch('aeropuerto'),               # ManyToMany con Aeropuerto
     Prefetch('vuelo_aerolinea')           # ManyToMany con Vuelo
@@ -31,6 +30,7 @@ def lista_aerolinea(request):
 
 @api_view(['GET'])
 def lista_vuelo(request):
+    
     vuelo = Vuelo.objects.prefetch_related(
     Prefetch('vuelo_pasajero'),           # ManyToMany con Pasajero
     Prefetch('asiento_vuelo'),            # ManyToOne con Asiento
