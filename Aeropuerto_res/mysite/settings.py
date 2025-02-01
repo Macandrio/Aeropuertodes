@@ -47,6 +47,8 @@ INSTALLED_APPS = [
     'django_bootstrap_icons',
     'rest_framework',
     'oauth2_provider',
+    
+
 ]
 
 OAUTH2_PROVIDER = {

@@ -2,15 +2,21 @@ from rest_framework import serializers
 from .models import *
 from .forms import *
 
+#clase Aeropuerto
+
 class AeropuertoSerializer(serializers.ModelSerializer):
     class Meta:
         model = Aeropuerto
         fields = '__all__'
 
+# Clase Aerolinea
+
 class AerolineaSerializer(serializers.ModelSerializer):
     class Meta:
         model = Aerolinea
         fields = '__all__'
+
+# clase Vuelo
 
 class VueloSerializer(serializers.ModelSerializer):
    
@@ -38,3 +44,58 @@ class VueloSerializer(serializers.ModelSerializer):
                   'aerolinea'
                   )
         model = Vuelo
+
+# Clase Usuario
+
+class UsuarioSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Usuario
+        fields = '__all__'
+
+# Clae Pasajero
+
+class PasajeroSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Pasajero
+        fields = '__all__'
+
+# clase Reserva
+class ReservaSerializer(serializers.ModelSerializer):
+   
+    Pasajero = PasajeroSerializer()
+    fecha_reserva = serializers.DateTimeField()
+    codigo_descueto = serializers.CharField()
+    metodo_pago = serializers.ChoiceField(choices=Reserva.METODO_PAGO_CHOICES)
+    estado_de_pago = serializers.BooleanField()
+
+    class Meta:
+        fields = ('id',
+                  'Pasajero',
+                  'fecha_reserva',
+                  'codigo_descueto',
+                  'metodo_pago',
+                  'estado_de_pago',
+                  )
+        model = Reserva
+
+
+# clase VueloAerolionea
+class VueloAerolioeaSerializer(serializers.ModelSerializer):
+   
+    estado = serializers.CharField()
+    fecha_operacion = serializers.DateTimeField()
+    clase = serializers.ChoiceField(choices=VueloAerolinea.tipos_clase_avion)
+    incidencias = serializers.CharField()
+    vuelo =  VueloSerializer()
+    aerolinea = AerolineaSerializer()
+
+    class Meta:
+        fields = ('id',
+                  'estado',
+                  'fecha_operacion',
+                  'clase',
+                  'metodincidenciaso_pago',
+                  'vuelo',
+                  'aerolinea',
+                  )
+        model = VueloAerolinea
