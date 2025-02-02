@@ -5,5 +5,5 @@
     <p><strong>Método de Pago:</strong> {{ reserva.metodo_pago }}</p>
     <p><strong>Estado de Pago:</strong> {{reserva.estado_de_pago|yesno:"Pagado,Pendiente de pago ,Sin datos"}}</p>
     <p><strong>Codigo de descuento:</strong> {{ reserva.codigo_descueto }}</p>
-    <p><strong>Pasajero:</strong> {{ reserva.pasajero.nombre }}</p>
-    <p><strong>Vuelo:</strong> {{ reserva.vuelo.id }}</p>
+    <p><strong>Pasajero:</strong> {{ reserva.pasajero.usuario }}</p>
+    <p><strong>Vuelo:</strong> {{ reserva.pasajero.vuelo }}</p>

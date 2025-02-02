@@ -62,25 +62,25 @@ class PasajeroSerializer(serializers.ModelSerializer):
 # clase Reserva
 class ReservaSerializer(serializers.ModelSerializer):
    
-    Pasajero = PasajeroSerializer()
     fecha_reserva = serializers.DateTimeField()
     codigo_descueto = serializers.CharField()
     metodo_pago = serializers.ChoiceField(choices=Reserva.METODO_PAGO_CHOICES)
     estado_de_pago = serializers.BooleanField()
+    pasajero = PasajeroSerializer()
 
     class Meta:
         fields = ('id',
-                  'Pasajero',
                   'fecha_reserva',
                   'codigo_descueto',
                   'metodo_pago',
                   'estado_de_pago',
+                  'pasajero',
                   )
         model = Reserva
 
 
 # clase VueloAerolionea
-class VueloAerolioeaSerializer(serializers.ModelSerializer):
+class VueloAerolineaSerializer(serializers.ModelSerializer):
    
     estado = serializers.CharField()
     fecha_operacion = serializers.DateTimeField()
@@ -94,7 +94,7 @@ class VueloAerolioeaSerializer(serializers.ModelSerializer):
                   'estado',
                   'fecha_operacion',
                   'clase',
-                  'metodincidenciaso_pago',
+                  'incidencias',
                   'vuelo',
                   'aerolinea',
                   )

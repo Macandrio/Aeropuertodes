@@ -46,6 +46,7 @@ def aerolinea_listar_api(request):
     aerolineas = response.json()
     return render(request, 'paginas/aerolinea_list.html', {'aerolineas': aerolineas})
 
+
 def vuelo_listar_api(request):
     if (request.user.is_anonymous==False):     
         if (request.user and request.user.rol == 1):       
@@ -59,3 +60,32 @@ def vuelo_listar_api(request):
     response = requests.get(BASE_API_URL + 'Vuelo', headers=headers)
     vuelos = response.json()
     return render(request, 'paginas/vuelo_list.html', {'vuelos': vuelos})
+
+def reserva_listar_api(request):
+    if (request.user.is_anonymous==False):     
+        if (request.user and request.user.rol == 1):       
+            headers = {'Authorization': 'Bearer '+env('Admin')} 
+        elif (request.user and request.user.rol == 2):
+            headers = {'Authorization': 'Bearer '+env('PASAJERO')} 
+        else:
+            headers = {'Authorization': 'Bearer '+env('GERENTE')}
+    else:
+        headers = {'Authorization': 'Bearer '+env('PASAJERO')}
+    response = requests.get(BASE_API_URL + 'Reserva', headers=headers)
+    reservas = response.json()
+    return render(request, 'paginas/reserva_list.html', {'reservas': reservas})
+
+
+def vueloaerolinea_listar_api(request):
+    if (request.user.is_anonymous==False):     
+        if (request.user and request.user.rol == 1):       
+            headers = {'Authorization': 'Bearer '+env('Admin')} 
+        elif (request.user and request.user.rol == 2):
+            headers = {'Authorization': 'Bearer '+env('PASAJERO')} 
+        else:
+            headers = {'Authorization': 'Bearer '+env('GERENTE')}
+    else:
+        headers = {'Authorization': 'Bearer '+env('PASAJERO')}
+    response = requests.get(BASE_API_URL + 'Vueloaerolinea', headers=headers)
+    vueloaerolinea = response.json()
+    return render(request, 'paginas/vuelo_aerolinea_list.html', {'vueloaerolinea': vueloaerolinea})

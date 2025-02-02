@@ -50,7 +50,6 @@ def lista_reserva(request):
     
     reserva = Reserva.objects.select_related(
     'pasajero',                           # ManyToOne con Pasajero
-    'vuelo'                               # ManyToOne con Vuelo
 )
     serializer = ReservaSerializer(reserva, many=True)
     return Response(serializer.data)
@@ -63,6 +62,6 @@ def lista_vueloaerolinea(request):
         'vuelo'        # ForeignKey directa a Vuelo
     )
 
-    serializer = VueloAerolioeaSerializer(vuelosaerolinea, many=True)
+    serializer = VueloAerolineaSerializer(vuelosaerolinea, many=True)
     return Response(serializer.data)
 
