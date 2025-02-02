@@ -11,7 +11,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'), True)
 env = environ.Env()
 
-BASE_API_URL = "http://127.0.0.1:8000/api/v1/"
+BASE_API_URL = "https://macandrio.pythonanywhere.com/api/v1/"
 
 def index(request):
     return render(request, 'index.html')
