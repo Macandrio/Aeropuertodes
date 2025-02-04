@@ -95,6 +95,11 @@ class AeropuertoForm(ModelForm):
             
             return self.cleaned_data
 
+
+class BusquedaAeropuertoForm(forms.Form):
+    textoBusqueda = forms.CharField(required=True)
+
+
 class BusquedaAvanzadaAeropuertoForm(forms.Form):
     
     textoBusqueda = forms.CharField(

@@ -1,10 +1,15 @@
-import requests
-from django.core import serializers
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .forms import *
+from django.contrib import messages
+from .helper import helper
+import json
+from requests.exceptions import HTTPError
 
+import requests
 import environ
 import os
 from pathlib import Path
+
 
 # Cargar variables de entorno
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -16,6 +21,7 @@ BASE_API_URL = "https://macandrio.pythonanywhere.com/api/v1/"
 def index(request):
     return render(request, 'index.html')
 
+#------------------------------------------------Listar--------------------------------------------------------------
 def aeropuerto_listar_api(request):
     if (request.user.is_anonymous==False):     
         if (request.user and request.user.rol == 1):       
@@ -89,3 +95,29 @@ def vueloaerolinea_listar_api(request):
     response = requests.get(BASE_API_URL + 'Vueloaerolinea', headers=headers)
     vueloaerolinea = response.json()
     return render(request, 'paginas/vuelo_aerolinea_list.html', {'vueloaerolinea': vueloaerolinea})
+
+
+#------------------------------------------------Formularios------------------------------------------------------------
+def crear_cabecera():
+    return {
+        'Authorization': 'Bearer '+env("TOKEN_ACCESO"),
+        "Content-Type": "application/json"
+        }
+
+
+def Aeropuerto_busqueda_simple(request):
+    formulario = BusquedaAeropuertoForm(request.GET)
+    
+    if formulario.is_valid():
+        headers = crear_cabecera()
+        response = requests.get(
+            BASE_API_URL + 'Aeropuerto/busqueda_simple',
+            headers=headers,
+            params={'textoBusqueda':formulario.data.get("textoBusqueda")}
+        )
+        aeropuerto = response.json()
+        return render(request, 'Formularios/Aeropuerto/busqueda_avanzada.html',{"aeropuerto_mostrar":aeropuerto})
+    if("HTTP_REFERER" in request.META):
+        return redirect(request.META["HTTP_REFERER"])
+    else:
+        return redirect("index")
