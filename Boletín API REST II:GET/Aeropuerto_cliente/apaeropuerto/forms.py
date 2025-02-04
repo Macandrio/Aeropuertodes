@@ -2,7 +2,6 @@ from django import forms
 from .models import *
 from datetime import date
 import datetime
-from .helper import helper
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
 
@@ -15,7 +14,7 @@ class BusquedaAeropuertoForm(forms.Form):
 class BusquedaAvanzadaAeropuertoForm(forms.Form):
 
     PAISES = [
-    ("", "Ninguno")
+    ("", "Ninguno"),
     ("ES", "España"),
     ("FR", "Francia"),
     ("IT", "Italia"),
@@ -28,7 +27,7 @@ class BusquedaAvanzadaAeropuertoForm(forms.Form):
     ("CH", "Suiza"),
     ]
     CIUDADES = [
-    ("", "Ninguno")
+    ("", "Ninguno"),
     ("ES", "Madrid"),
     ("FR", "París"),
     ("IT", "Roma"),

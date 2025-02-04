@@ -10,6 +10,6 @@ urlpatterns = [
     path('VueloAerolinea/', views.vueloaerolinea_listar_api, name='vueloaerolinea_listar_api'),
 
 
-    path('busqueda_Aeropuerto/', views.libro_busqueda_simple, name='libro_busqueda_simple'),
+    path('busqueda_Aeropuerto/', views.Aeropuerto_busqueda_simple, name='Aeropuerto_busqueda_simple'),
 
 ]

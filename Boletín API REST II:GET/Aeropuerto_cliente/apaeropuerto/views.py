@@ -1,7 +1,6 @@
 from django.shortcuts import render,redirect
 from .forms import *
 from django.contrib import messages
-from .helper import helper
 import json
 from requests.exceptions import HTTPError
 
@@ -17,6 +16,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'), True)
 env = environ.Env()
 
 BASE_API_URL = "https://macandrio.pythonanywhere.com/api/v1/"
+BASE_API_URL_local = "http://127.0.0.1:8000/api/v1/"
 
 def index(request):
     return render(request, 'index.html')
@@ -111,7 +111,7 @@ def Aeropuerto_busqueda_simple(request):
     if formulario.is_valid():
         headers = crear_cabecera()
         response = requests.get(
-            BASE_API_URL + 'Aeropuerto/busqueda_simple',
+            BASE_API_URL_local + 'Aeropuerto/busqueda_simple',
             headers=headers,
             params={'textoBusqueda':formulario.data.get("textoBusqueda")}
         )
